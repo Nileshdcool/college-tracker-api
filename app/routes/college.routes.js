@@ -3,6 +3,9 @@ module.exports = app => {
 
     var router = require("express").Router();
 
+    // Seed a new colleges
+    router.post("/seedCollege", colleges.seedCollege);
+
     // Create a new colleges
     router.post("/", colleges.create);
 

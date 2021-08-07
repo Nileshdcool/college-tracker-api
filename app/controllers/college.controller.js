@@ -1,6 +1,42 @@
 const db = require("../models");
 const College = db.college;
 
+
+exports.seedCollege = async(req, res) => {
+    console.log('Seeding authors to ');
+    const colleges = [
+        {
+            "name":"SNKT",
+            "year_founded":2019,
+            "location": {
+                "country":"India",
+                "city":"Mumbai",
+                "state":"Maharashtra"
+            },
+            "ratings":"4",
+            "courses":["Science","Maths"]
+        },
+        {
+            "name":"Tilak College",
+            "year_founded":2012,
+            "location": {
+                "country":"India",
+                "city":"Mumbai",
+                "state":"Maharashtra"
+            },
+            "ratings":"3",
+            "courses":["Commerce","Maths"]
+        },
+    ];
+
+    for (college of colleges) {
+        var newCollege = new College(college);
+        await newCollege.save();
+    }
+    const a = await College.find();
+    res.send(a);
+}
+
 // Create and Save a new asset
 exports.create = (req, res) => {
     // Validate request
@@ -37,7 +73,8 @@ exports.findAll = (req, res) => {
     const name = req.query.name;
     var condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
 
-    College.find(condition)
+    College.find(condition).
+    populate('students')
         .then(data => {
             res.send(data);
         })
@@ -52,7 +89,6 @@ exports.findAll = (req, res) => {
 // Find a single college with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-
     College.findById(id)
         .then(data => {
             if (!data)

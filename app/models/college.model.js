@@ -11,7 +11,10 @@ module.exports = mongoose => {
             year_founded: Number,
             location: LocationSchema,
             ratings: String,
-            courses: [String]
+            courses: [String],
+            students:[
+                { type: mongoose.Schema.Types.ObjectId, ref: 'student' }
+            ]
         },
         { timestamps: true }
     );

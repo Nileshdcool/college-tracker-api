@@ -3,7 +3,7 @@ module.exports = mongoose => {
         name: String,
         year_of_batch: Number,
         skills: [String],
-        collegeID: {
+        college: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'college'
         },
