@@ -1,0 +1,36 @@
+{
+  "name": "college-tracker-api",
+  "version": "1.0.0",
+  "description": "this is api project for writing rest apis for the web application portal",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nileshdcool/college-tracker-api.git"
+  },
+  "keywords": [
+    "college-tracker",
+    "college-tracker-api",
+    "assignment"
+  ],
+  "author": "neil.sukalikar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nileshdcool/college-tracker-api/issues"
+  },
+  "homepage": "https://github.com/Nileshdcool/college-tracker-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
