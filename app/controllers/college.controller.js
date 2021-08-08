@@ -1,35 +1,11 @@
 const db = require("../models");
+const collegeData = require("../data/colleges");
 const College = db.college;
 
-
 exports.seedCollege = async(req, res) => {
-    console.log('Seeding authors to ');
-    const colleges = [
-        {
-            "name":"SNKT",
-            "year_founded":2019,
-            "location": {
-                "country":"India",
-                "city":"Mumbai",
-                "state":"Maharashtra"
-            },
-            "ratings":"4",
-            "courses":["Science","Maths"]
-        },
-        {
-            "name":"Tilak College",
-            "year_founded":2012,
-            "location": {
-                "country":"India",
-                "city":"Mumbai",
-                "state":"Maharashtra"
-            },
-            "ratings":"3",
-            "courses":["Commerce","Maths"]
-        },
-    ];
+    console.log('Seeding colleges...');
 
-    for (college of colleges) {
+    for (let college of collegeData) {
         var newCollege = new College(college);
         await newCollege.save();
     }
