@@ -13,7 +13,7 @@ exports.seedCollege = async(req, res) => {
     res.send(a);
 }
 
-// Create and Save a new asset
+// Create and Save a new college
 exports.create = (req, res) => {
     // Validate request
     if (!req.body.name) {

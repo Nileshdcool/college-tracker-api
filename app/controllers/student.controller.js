@@ -21,7 +21,7 @@ exports.seedStudents = async (req, res) => {
     res.send(a);
 }
 
-// Create and Save a new asset
+// Create and Save a new students
 exports.create = (req, res) => {
     // Validate request
     if (!req.body.name) {
